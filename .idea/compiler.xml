@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_ADDITIONAL_VM_OPTIONS" value="-Djps.track.ap.dependencies=false" />
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="shopping-alipay-demo" />
+        <module name="shopping-common" />
+        <module name="shopping-auth-service" />
+        <module name="shopping-upload" />
+        <module name="shopping-user-service" />
+        <module name="shopping-search" />
+        <module name="shopping-orderform-server" />
+        <module name="shopping-orderform-interface" />
+        <module name="shopping-cart" />
+        <module name="shopping-gateway" />
+        <module name="shopping-item-service" />
+        <module name="shopping-goods" />
+        <module name="shopping-item-interface" />
+        <module name="shopping-user-interface" />
+        <module name="shopping-eureka" />
+        <module name="shopping-auth-common" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="shopping" options="-parameters" />
+      <module name="shopping-alipay-demo" options="-parameters" />
+      <module name="shopping-auth-common" options="-parameters" />
+      <module name="shopping-auth-service" options="-parameters" />
+      <module name="shopping-cart" options="-parameters" />
+      <module name="shopping-common" options="-parameters" />
+      <module name="shopping-eureka" options="-parameters" />
+      <module name="shopping-gateway" options="-parameters" />
+      <module name="shopping-goods" options="-parameters" />
+      <module name="shopping-item-interface" options="-parameters" />
+      <module name="shopping-item-service" options="-parameters" />
+      <module name="shopping-orderform" options="-parameters" />
+      <module name="shopping-orderform-interface" options="-parameters" />
+      <module name="shopping-orderform-server" options="-parameters" />
+      <module name="shopping-search" options="-parameters" />
+      <module name="shopping-upload" options="-parameters" />
+      <module name="shopping-user" options="-parameters" />
+      <module name="shopping-user-interface" options="-parameters" />
+      <module name="shopping-user-service" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,12 @@
+server:
+  port: 13000
+spring:
+  application:
+    name: goods-service
+eureka:
+  client:
+    service-url:
+      default-Zone: http://127.0.0.1:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 5 #eureka心跳续约
+    lease-expiration-duration-in-seconds: 15 #15秒无心跳剔除服务

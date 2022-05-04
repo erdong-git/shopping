@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script th:src="@{/js/jquery-1.12.4.js}"></script>
+
+</head>
+<body>
+<!--页眉-->
+
+<!-- start header -->
+<header>
+    <div class="top center">
+        <div class="left fl">
+            <ul>
+                <li><a href="http://www.shopping.com/">小米商城</a></li>
+                <li>|</li>
+                <li><a href="">MIUI</a></li>
+                <li>|</li>
+                <li><a href="">米聊</a></li>
+                <li>|</li>
+                <li><a href="">游戏</a></li>
+                <li>|</li>
+                <li><a href="">多看阅读</a></li>
+                <li>|</li>
+                <li><a href="">云服务</a></li>
+                <li>|</li>
+                <li><a href="">金融</a></li>
+                <li>|</li>
+                <li><a href="">小米商城移动版</a></li>
+                <li>|</li>
+                <li><a href="">问题反馈</a></li>
+                <li>|</li>
+                <li><a href="">Select Region</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="right fr">
+            <div class="gouwuche fr"><a th:href="@{/cart}">购物车</a></div>
+            <div class="fr" id="logindiv">
+                <ul>
+                    <li><a th:href="@{/login}">登录</a></li>
+                    <li>|</li>
+                    <li><a th:href="@{/register}">注册</a></li>
+                    <li>|</li>
+                    <li><a href="">消息通知</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</header>
+<!--end header -->
+
+
+<table>
+    <tr>
+        <td colspan="3" align="left">
+            <IMG src="/images/star_.gif"/>
+            >>>新品推荐
+        </td>
+    </tr>
+    <tr>
+        <td width='100' rowspan='8' align="center" class="tdphonepic">
+            <img id="pic" th:src="${images}" style='width: 280px;height:400px'/>
+
+        </td>
+        <td width='100' class="currow">
+            手机型号:
+        </td>
+        <td  class="currow" id="type">
+            [[${titles[0]}]]-[[${titles[1]}]]
+        </td>
+
+    </tr>
+
+    <tr class="currow">
+        <td>
+            会员特价&nbsp;:
+            <image SRC="/images/qian2.gif">
+        </td>
+        <td>
+            <b style="color:red" th:text="${#numbers.formatCurrency(price/100)}"></b>
+        </td>
+    </tr>
+    <tr class="currow">
+        <td>
+            颜色：
+        </td>
+        <td>
+            [[${specMap['机身颜色']}]]
+        </td>
+    </tr>
+    <tr class="currow">
+        <td>
+            内存大小：
+        </td>
+        <td>
+            [[${specMap['内存']}]]
+        </td>
+    </tr>
+    <tr class="currow">
+        <td>
+            机身存储：
+        </td>
+        <td>
+            [[${specMap['机身存储']}]]
+        </td>
+    </tr>
+    <tr class="currow">
+        <td height='27'>
+            手机品牌名:
+        </td>
+        <td id="title">
+            [[${titles[0]}]]
+        </td>
+    </tr>
+    <tr class="currow">
+        <td height='27'>
+            上架时间
+        </td>
+        <td>
+            <b style="color: blue" th:text="${#dates.format(createTime,'yyyy-MM-dd')}"></b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img border="0"  onclick="addCart()" src='/images\\icon_buyCar.gif' style='border: 0;'>
+        </td>
+    </tr>
+    <tr>
+        <td align=center>
+            <IMG src="/images/icon1.gif" title="彩铃"/>
+            &nbsp;&nbsp;
+            <IMG src="/images/icon2.gif" title="彩信"/>
+            &nbsp;&nbsp;
+            <IMG src="/images/icon3.gif" title="摄像"/>
+        </td>
+        <td colspan=2>
+            &nbsp;
+        </td>
+    </tr>
+</table>
+<!--页脚-->
+<footer class="mt20 center">
+    <div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+    <div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div>
+    <div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
+</footer>
+
+<script src="/js/axios.min.js"></script>
+<!--th:inline=javascript 是一种内联的方式，用于之间从该网页包含的Model中取值，-->
+<!--取值的公式为: [[${key}]]-->
+ <script th:inline="javascript">
+     $(function () {
+         //发出axios请求，验证是否登录
+         axios.defaults.withCredentials=true;
+         axios.get(
+             "http://api.shopping.com/api/auth/verify"
+         ).then(function (value) {
+             //登录成功,显示用户名
+             var userinfo =value.data;
+             var msg="<b style='color: cornsilk'>Welcome,"+userinfo.username+"</b>";
+             $("#logindiv").html(msg);
+         }).catch(function (reason) {
+
+         });
+
+
+     })
+
+    function addCart(
+    ) {
+        //获得需要添加至购物车的商品Id
+        let skuId = [[${id}]];
+        //设置允许axios携带cookie
+        axios.defaults.withCredentials = true;
+
+        //发出axios请求，检查用户是否登录
+        axios.get("http://api.shopping.com/api/auth/verify").
+        then(function (value) {
+            alert("已登录");
+            //利用axios发出请求，添加商品信息
+            axios.post("http://api.shopping.com/api/cart/add",{"skuId":skuId,"num":1}).then(function () {
+                //alert("添加成功");
+                location.href="http://www.shopping.com/cart";//跳转到前台的购物车页面
+            });
+        }).catch(function (reason) {
+            //未登录时，用户的购物车信息保存至LocalStorage,检查LocalStorage是否有已存在的购物车信息
+            //如果有，就得到该数组，如果没有，就创建一个空白数组
+            let carts = JSON.parse(localStorage.getItem("shopping-carts"))||[];
+            //检查该数组中是否包含目前选择的商品,将其返回给cart
+            let cart =carts.find(cart=>cart.skuId==skuId);
+            //判断cart是否为空
+            if(cart){
+                //商品存在，则数量+1
+                cart.num+=1;
+            }else{
+                //不存在，创建一个新商品，放入carts
+                carts.push({skuId:skuId,
+                            title:[[${title}]],
+                            price:[[${price}]],
+                            image:[[${images}]],
+                            num:1});
+            }
+            //将更改过的carts放回localStorage
+            localStorage.setItem("shopping-carts",JSON.stringify(carts))
+
+            // alert("商品已添加至购物车")
+        });
+    }
+
+</script>
+</body>
+</html>

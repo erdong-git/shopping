@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>shopping</artifactId>
+        <groupId>org.java.shopping</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.java.cart</groupId>
+    <artifactId>shopping-cart</artifactId>
+    <dependencies>
+        <!--eureka客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!--web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--导入feign的依赖，授权中心接收到用户名，密码，要通过User-service连接数据库来判断，数据是否正确-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!--导入shopping-common(这里包含了产生cookie的工具类，生成的令牌需要通过cookie来发送到客户端)-->
+        <dependency>
+            <groupId>org.java.shopping</groupId>
+            <artifactId>shopping-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--item依赖，要使用item的api-->
+        <dependency>
+            <groupId>org.java.item</groupId>
+            <artifactId>shopping-item</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.java.auth-common</groupId>
+            <artifactId>shopping-auth-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--redis依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.java.item</groupId>
+            <artifactId>shopping-item-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <!--排除它包含的某一个依赖-->
+            <exclusions>
+                <exclusion>
+                    <groupId>tk.mybatis</groupId>
+                    <artifactId>mapper-spring-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+
+</project>

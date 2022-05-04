@@ -1,0 +1,58 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: shopping-gateway-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    lease-e xpiration-duration-in-seconds: 15 #15秒没有接收到心跳，则剔除服务
+    lease-renewal-interval-in-seconds: 5 #5秒钟向服务发送一次心跳
+zuul:
+  routes:
+    #发出的请求是itemService开头，就路由到item-service服务
+    item-service: #别名，任意指定
+      path: /item/**
+      serviceId: item-service #对应的微服务名称
+  #如果网关的映射名称与控制器的请求名称一致时，可以使用strip-prefix:false，过滤其中一个相同的名称
+  #item/item/** → item/
+    upload-service:
+      path: /upload/**
+      serviceId: upload-service
+      strip-prefix: false
+    search-service:
+      path: /search/**
+      serviceId: search-service
+      strip-prefix: false
+    user-service:
+      path: /user/**
+      serviceId: user-service
+      strip-prefix: false
+    auth-service: #authservice没有设置RequestMapping的地址，所有不需要填写ServiceID也不需要过滤Strip-prefix
+      path: /auth/**
+    cart-service:
+      path: /cart/**
+  #给所有进入网关的请求，指定一个前缀API
+  #http://localhost:网关端口号:api/***
+  prefix: /api
+  add-host-header: true
+  #不指定任何内容，表示不使用默认的敏感词过滤列表,覆盖原有配置，不指定任何敏感词
+  sensitive-headers:
+#jwt的属性配置
+shopping:
+  jwt:
+    secret: maguojwtlogin # 登录校验的密钥---------通过成公钥、私钥时，混合的数据
+    pubKeyPath: C:\\tmp\\rsa\\rsa.pub # 公钥地址
+    cookieName: shopping-token #cookie的名称
+  filter: #网关白名称，不拦截
+    allowPaths:
+      - /api/upload
+      - /api/auth
+      - /api/search
+      - /api/user
+      - /api/item
+      - /api/cart

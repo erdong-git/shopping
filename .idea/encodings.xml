@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-alipay-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-auth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-auth/shopping-auth-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-auth/shopping-auth-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-cart" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-goods" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-item" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-item/shopping-item-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-item/shopping-item-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-orderform" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-orderform/shopping-orderform-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-orderform/shopping-orderform-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-upload" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-user/shopping-user-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-user/shopping-user-service" charset="UTF-8" />
+  </component>
+</project>

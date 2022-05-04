@@ -1,0 +1,20 @@
+server:
+  port: 15000
+spring:
+  application:
+    name: auth-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 5 #心跳续约
+    lease-expiration-duration-in-seconds: 15 #15秒后无心跳提出服务
+#jwt的属性配置
+shopping:
+  jwt:
+   secret: maguojwtlogin # 登录校验的密钥---------通过成公钥、私钥时，混合的数据
+   pubKeyPath: C:\\tmp\\rsa\\rsa.pub # 公钥地址
+   priKeyPath: C:\\tmp\\rsa\\rsa.pri # 私钥地址
+   expire: 30 # 过期时间,单位分钟
+   cookieName: shopping-token #cookie的名称

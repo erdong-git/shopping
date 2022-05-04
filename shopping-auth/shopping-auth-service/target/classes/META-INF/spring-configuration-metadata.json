@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "name": "shopping.jwt",
+      "type": "org.java.auth.config.JwtProperties",
+      "sourceType": "org.java.auth.config.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "shopping.jwt.cookie-name",
+      "type": "java.lang.String",
+      "sourceType": "org.java.auth.config.JwtProperties"
+    },
+    {
+      "name": "shopping.jwt.expire",
+      "type": "java.lang.Integer",
+      "sourceType": "org.java.auth.config.JwtProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "shopping.jwt.pri-key-path",
+      "type": "java.lang.String",
+      "sourceType": "org.java.auth.config.JwtProperties"
+    },
+    {
+      "name": "shopping.jwt.private-key",
+      "type": "java.security.PrivateKey",
+      "sourceType": "org.java.auth.config.JwtProperties"
+    },
+    {
+      "name": "shopping.jwt.pub-key-path",
+      "type": "java.lang.String",
+      "sourceType": "org.java.auth.config.JwtProperties"
+    },
+    {
+      "name": "shopping.jwt.public-key",
+      "type": "java.security.PublicKey",
+      "sourceType": "org.java.auth.config.JwtProperties"
+    },
+    {
+      "name": "shopping.jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "org.java.auth.config.JwtProperties"
+    }
+  ],
+  "hints": []
+}

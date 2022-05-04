@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "shopping.filter",
+      "type": "org.java.shopping.config.LoginProperties",
+      "sourceType": "org.java.shopping.config.LoginProperties"
+    },
+    {
+      "name": "shopping.jwt",
+      "type": "org.java.shopping.config.JwtProperties",
+      "sourceType": "org.java.shopping.config.JwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "shopping.filter.allow-paths",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "org.java.shopping.config.LoginProperties"
+    },
+    {
+      "name": "shopping.jwt.cookie-name",
+      "type": "java.lang.String",
+      "sourceType": "org.java.shopping.config.JwtProperties"
+    },
+    {
+      "name": "shopping.jwt.pub-key-path",
+      "type": "java.lang.String",
+      "sourceType": "org.java.shopping.config.JwtProperties"
+    },
+    {
+      "name": "shopping.jwt.public-key",
+      "type": "java.security.PublicKey",
+      "sourceType": "org.java.shopping.config.JwtProperties"
+    }
+  ],
+  "hints": []
+}
